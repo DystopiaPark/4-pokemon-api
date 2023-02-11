@@ -1,5 +1,9 @@
 document.querySelector("#search").addEventListener("click", getPokemon);
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function lowerCaseName(string) {
   return string.toLowerCase();
 }
@@ -14,11 +18,11 @@ function getPokemon(e) {
      <div>
           <img
             src="${data.sprites.other["official-artwork"].front_default}"
-            alt="${data.name}"
+            alt="${capitalizeFirstLetter(data.name)}"
           />
         </div>
         <div class="pokemonInfo">
-          <h1>${data.name}</h1>
+          <h1>${capitalizeFirstLetter(data.name)}</h1>
           <p>Weight: ${data.weight}</p>
         </div>
      `;
