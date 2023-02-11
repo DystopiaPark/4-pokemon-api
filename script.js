@@ -1,8 +1,13 @@
 document.querySelector("#search").addEventListener("click", getPokemon);
 
+function lowerCaseName(string) {
+  return string.toLowerCase();
+}
+
 function getPokemon(e) {
   const name = document.querySelector("#pokemonName").value;
-  fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  const pokemonName = lowerCaseName(name);
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then((response) => response.json())
     .then((data) => {
       document.querySelector(".pokemonBox").innerHTML = `
